@@ -7,7 +7,9 @@ import kotlin.math.pow
 fun main() {
 //    println(maxArea(intArrayOf(1,8,6,2,5,4,8,3,7)))
 //    println(intToRoman(1994))
-    println(romanToInt("MXI"))
+//    println(romanToInt("MXI"))
+//    println(threeSum(intArrayOf(0,0,0)))
+
 }
 
 fun maxArea(height: IntArray): Int {
@@ -87,4 +89,27 @@ fun romanToInt(s: String): Int {
 
     }
     return  total
+}
+
+fun threeSum(nums: IntArray): List<List<Int>> {
+    val triplets = mutableSetOf<List<Int>>()
+    nums.sort()
+    for (i in nums.indices){
+        var j = i+1
+        var k = nums.size - 1
+        while(j < k){
+            val sum = nums[i] + nums[j] + nums[k]
+            if(sum == 0){
+                triplets.add(listOf(nums[i],nums[j],nums[k]))
+                j++
+                k--
+            }else if(sum < 0){
+               j++
+            }
+            else{
+                k--
+            }
+        }
+    }
+    return triplets.toList()
 }
