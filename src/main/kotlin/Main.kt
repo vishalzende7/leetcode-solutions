@@ -6,7 +6,8 @@ import kotlin.math.pow
 
 fun main() {
 //    println(maxArea(intArrayOf(1,8,6,2,5,4,8,3,7)))
-    println(intToRoman(1994))
+//    println(intToRoman(1994))
+    println(romanToInt("MXI"))
 }
 
 fun maxArea(height: IntArray): Int {
@@ -49,7 +50,7 @@ fun intToRoman(num: Int): String {
     var n = num
     for ((v, s) in romanMap) {
         val repeat = n / v
-        if(repeat >0){
+        if (repeat > 0) {
             sb.append(s.repeat(repeat))
             n %= v
         }
@@ -57,3 +58,33 @@ fun intToRoman(num: Int): String {
     return sb.toString()
 }
 
+fun romanToInt(s: String): Int {
+    val romanMap = mapOf<Char, Int>(
+        'I' to 1,
+        'V' to 5,
+        'X' to 10,
+        'L' to 50,
+        'C' to 100,
+        'D' to 500,
+        'M' to 1000,
+    )
+    var lastSymbol:Char? = null
+    var total = 0;
+    for(i in s){
+        total += romanMap[i]?: throw IllegalArgumentException("Invalid roman symbol")
+        when(lastSymbol){
+            'I','X','C'-> {
+                if(romanMap[lastSymbol]!! >= romanMap[i]!!) {
+                    lastSymbol = i
+                    continue
+                }
+                total -= romanMap[i]!!
+                total -= romanMap[lastSymbol]!!
+                total += (romanMap[i]!! - romanMap[lastSymbol]!!)
+            }
+            else -> lastSymbol = i
+        }
+
+    }
+    return  total
+}
