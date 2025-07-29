@@ -1,15 +1,15 @@
 package org.example
 
+import features.Tribonacci
 import kotlin.math.max
 import kotlin.math.min
-import kotlin.math.pow
 
 fun main() {
 //    println(maxArea(intArrayOf(1,8,6,2,5,4,8,3,7)))
 //    println(intToRoman(1994))
 //    println(romanToInt("MXI"))
 //    println(threeSum(intArrayOf(0,0,0)))
-
+    Tribonacci().run()
 }
 
 fun maxArea(height: IntArray): Int {
