@@ -1,6 +1,6 @@
 package features
 
-import NavComponent
+import org.example.domain.core.NavComponent
 import kotlin.system.measureTimeMillis
 
 class Tribonacci : NavComponent("Tribonacci Using Recursion") {

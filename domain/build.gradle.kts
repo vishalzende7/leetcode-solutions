@@ -1,16 +1,16 @@
 plugins {
-    kotlin("jvm") version "2.0.20"
+    kotlin("jvm")
 }
 
-group = "org.example"
+group = "org.example.domain"
 version = "1.0-SNAPSHOT"
+
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation(project(":domain"))
     testImplementation(kotlin("test"))
 }
 

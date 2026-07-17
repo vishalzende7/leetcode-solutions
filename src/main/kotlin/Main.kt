@@ -1,16 +1,63 @@
 package org.example
 
-import features.Tribonacci
+import org.example.domain.kotlin.AverageAgeByCities
+import org.example.domain.ContainsNearbyDuplicateNew
+import org.example.domain.kotlin.DistinctFlatElements
+import org.example.domain.kotlin.GroupAnagrams
+import org.example.domain.LengthOfLongestSubstring
+import org.example.domain.MinSubArrayLen
+import org.example.domain.kotlin.MostFrequentElement
+import org.example.domain.kotlin.PartitionAndTransform
+import org.example.domain.kotlin.MaxKSum
 import kotlin.math.max
 import kotlin.math.min
 
-fun main() {
-//    println(maxArea(intArrayOf(1,8,6,2,5,4,8,3,7)))
-//    println(intToRoman(1994))
-//    println(romanToInt("MXI"))
-//    println(threeSum(intArrayOf(0,0,0)))
-    Tribonacci().run()
+class Main {
+    companion object {
+        val minSubArrayLen = MinSubArrayLen()
+        val lengthOfLongestSubstring = LengthOfLongestSubstring()
+        val containsNearbyDuplicateNew = ContainsNearbyDuplicateNew()
+        val mostFrequentElement = MostFrequentElement()
+        val groupAnagrams = GroupAnagrams()
+        val partitionAndTransform = PartitionAndTransform()
+        val averageAgeByCities = AverageAgeByCities()
+        val distinctFlatElements = DistinctFlatElements()
+        val maxKSum = MaxKSum()
+
+        @JvmStatic
+        fun main(args: Array<String>) {
+//            println(maxArea(intArrayOf(1, 8, 6, 2, 5, 4, 8, 3, 7)))
+//            println(intToRoman(1994))
+//            println(romanToInt("MXI"))
+//            println(threeSum(intArrayOf(0, 0, 0)))
+//            Tribonacci().run()
+//            println(minSubArrayLen(15,intArrayOf(1,2,3,4,5)))
+//            println(lengthOfLongestSubstring("dvdf"))
+//            println(containsNearbyDuplicateNew(intArrayOf(1,2,3,1,2,3),0))
+//            println(mostFrequentElement(intArrayOf(1, 3, 2, 1, 4, 1, 3, 2, 3, 3)))
+//            println(groupAnagrams(arrayOf("eat", "tea", "tan", "ate", "nat", "bat")))
+            println(partitionAndTransform(intArrayOf(5, 2, 9, 1, 4, 6, 8, 3)))
+
+//            val people = listOf(
+//                Person("Alice", 25, "New York"),
+//                Person("Bob", 30, "London"),
+//                Person("Charlie", 35, "New York"),
+//                Person("Diana", 28, "London")
+//            )
+//            averageAgeByCities(people)
+
+//            val tags = listOf(
+//                listOf("kotlin", "android"),
+//                listOf("android", "compose", "ui"),
+//                listOf("kotlin", "architecture")
+//            )
+//            distinctFlatElements(tags)
+
+//            maxKSum(intArrayOf(1, 5, 2, 8, 3, 6, 4),3)
+        }
+    }
 }
+
 
 fun maxArea(height: IntArray): Int {
     var left = 0
@@ -70,13 +117,13 @@ fun romanToInt(s: String): Int {
         'D' to 500,
         'M' to 1000,
     )
-    var lastSymbol:Char? = null
+    var lastSymbol: Char? = null
     var total = 0;
-    for(i in s){
-        total += romanMap[i]?: throw IllegalArgumentException("Invalid roman symbol")
-        when(lastSymbol){
-            'I','X','C'-> {
-                if(romanMap[lastSymbol]!! >= romanMap[i]!!) {
+    for (i in s) {
+        total += romanMap[i] ?: throw IllegalArgumentException("Invalid roman symbol")
+        when (lastSymbol) {
+            'I', 'X', 'C' -> {
+                if (romanMap[lastSymbol]!! >= romanMap[i]!!) {
                     lastSymbol = i
                     continue
                 }
@@ -84,29 +131,29 @@ fun romanToInt(s: String): Int {
                 total -= romanMap[lastSymbol]!!
                 total += (romanMap[i]!! - romanMap[lastSymbol]!!)
             }
+
             else -> lastSymbol = i
         }
 
     }
-    return  total
+    return total
 }
 
 fun threeSum(nums: IntArray): List<List<Int>> {
     val triplets = mutableSetOf<List<Int>>()
     nums.sort()
-    for (i in nums.indices){
-        var j = i+1
+    for (i in nums.indices) {
+        var j = i + 1
         var k = nums.size - 1
-        while(j < k){
+        while (j < k) {
             val sum = nums[i] + nums[j] + nums[k]
-            if(sum == 0){
-                triplets.add(listOf(nums[i],nums[j],nums[k]))
+            if (sum == 0) {
+                triplets.add(listOf(nums[i], nums[j], nums[k]))
                 j++
                 k--
-            }else if(sum < 0){
-               j++
-            }
-            else{
+            } else if (sum < 0) {
+                j++
+            } else {
                 k--
             }
         }
