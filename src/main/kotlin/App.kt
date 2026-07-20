@@ -3,6 +3,7 @@ package org.example
 import com.vishalzende.navigation.NavHost
 import org.example.domain.`kotlin-collection`.PartitionAndTransformNav
 import org.example.features.FirstOccurrenceStringCli
+import org.example.features.ValidPalindromeNav
 import org.example.navigation.NavMenu
 import org.koin.core.annotation.KoinApplication
 import org.koin.java.KoinJavaComponent
@@ -14,6 +15,7 @@ class App {
             composable("main", NavMenu())
             composable("FirstOccurrenceStringCli", FirstOccurrenceStringCli())
             composable("PartitionAndTransformNav", PartitionAndTransformNav())
+            composable("ValidPalindromeNav", ValidPalindromeNav())
         }
     }
 }
