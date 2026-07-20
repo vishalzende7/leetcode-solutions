@@ -17,12 +17,3 @@ class ContainsNearbyDuplicateNew {
         return false
     }
 }
-
-/*
-* Input: nums = [1,0,1,1], k = 1
-* Output: true
-* seen = {1,1} isContain and <= k-1 true
-* 1,0,1,1
-*       i
-*
-* */

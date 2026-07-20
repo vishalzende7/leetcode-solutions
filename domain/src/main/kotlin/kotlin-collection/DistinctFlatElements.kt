@@ -1,4 +1,4 @@
-package org.example.domain.kotlin
+package org.example.domain.`kotlin-collection`
 
 class DistinctFlatElements {
     operator fun invoke(tags: List<List<String>>) {

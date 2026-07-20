@@ -1,5 +1,4 @@
-package org.example.domain.kotlin
-
+package org.example.domain
 
 class AverageAgeByCities {
     operator fun invoke(people: List<Person>) {

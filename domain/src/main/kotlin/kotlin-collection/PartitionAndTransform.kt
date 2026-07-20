@@ -1,4 +1,7 @@
-package org.example.domain.kotlin
+package org.example.domain.`kotlin-collection`
+
+import com.vishalzende.navigation.NavComponent
+
 
 class PartitionAndTransform {
     operator fun invoke(nums: IntArray) {
@@ -26,5 +29,11 @@ class PartitionAndTransform {
                     set.sumOf { it.price }
                 }
         )
+    }
+}
+
+class PartitionAndTransformNav() : NavComponent() {
+    override fun render() {
+        PartitionAndTransform()(intArrayOf(5, 2, 9, 1, 4, 6, 8, 3))
     }
 }
