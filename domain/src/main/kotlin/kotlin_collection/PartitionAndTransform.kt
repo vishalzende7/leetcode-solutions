@@ -1,4 +1,4 @@
-package org.example.domain.`kotlin-collection`
+package org.example.domain.kotlin_collection
 
 import com.vishalzende.navigation.NavComponent
 

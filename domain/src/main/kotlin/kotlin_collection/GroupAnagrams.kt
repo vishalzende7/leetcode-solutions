@@ -1,4 +1,4 @@
-package org.example.domain.`kotlin-collection`
+package org.example.domain.kotlin_collection
 
 class GroupAnagrams {
     operator fun invoke(a: Array<String>): List<List<String>> {
