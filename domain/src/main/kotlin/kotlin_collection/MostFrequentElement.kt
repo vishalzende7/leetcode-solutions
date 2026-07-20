@@ -1,4 +1,4 @@
-package org.example.domain.`kotlin-collection`
+package org.example.domain.kotlin_collection
 
 class MostFrequentElement {
     operator fun invoke(nums: IntArray): Int {
