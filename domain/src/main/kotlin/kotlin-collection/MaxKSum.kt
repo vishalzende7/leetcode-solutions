@@ -1,4 +1,4 @@
-package org.example.domain.kotlin
+package org.example.domain.`kotlin-collection`
 
 class MaxKSum {
     operator fun invoke(nums: IntArray, k:Int) {

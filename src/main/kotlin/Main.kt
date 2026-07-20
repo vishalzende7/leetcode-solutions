@@ -1,17 +1,24 @@
 package org.example
 
-import org.example.domain.kotlin.AverageAgeByCities
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.runBlocking
 import org.example.domain.ContainsNearbyDuplicateNew
-import org.example.domain.kotlin.DistinctFlatElements
-import org.example.domain.kotlin.GroupAnagrams
+import org.example.domain.AverageAgeByCities
+import org.example.domain.`kotlin-collection`.DistinctFlatElements
+import org.example.domain.`kotlin-collection`.GroupAnagrams
 import org.example.domain.LengthOfLongestSubstring
 import org.example.domain.MinSubArrayLen
-import org.example.domain.kotlin.MostFrequentElement
-import org.example.domain.kotlin.PartitionAndTransform
-import org.example.domain.kotlin.MaxKSum
+import org.example.domain.`kotlin-collection`.MostFrequentElement
+import org.example.domain.`kotlin-collection`.PartitionAndTransform
+import org.example.domain.`kotlin-collection`.MaxKSum
+import org.koin.core.annotation.KoinApplication
+import org.koin.plugin.module.dsl.startKoin
 import kotlin.math.max
 import kotlin.math.min
 
+
+@KoinApplication
 class Main {
     companion object {
         val minSubArrayLen = MinSubArrayLen()
@@ -26,6 +33,13 @@ class Main {
 
         @JvmStatic
         fun main(args: Array<String>) {
+            startKoin<App>()
+            val mainApp = App()
+            runBlocking(context = SupervisorJob() + Dispatchers.Default) {
+                mainApp.run()
+            }
+
+
 //            println(maxArea(intArrayOf(1, 8, 6, 2, 5, 4, 8, 3, 7)))
 //            println(intToRoman(1994))
 //            println(romanToInt("MXI"))
@@ -36,7 +50,7 @@ class Main {
 //            println(containsNearbyDuplicateNew(intArrayOf(1,2,3,1,2,3),0))
 //            println(mostFrequentElement(intArrayOf(1, 3, 2, 1, 4, 1, 3, 2, 3, 3)))
 //            println(groupAnagrams(arrayOf("eat", "tea", "tan", "ate", "nat", "bat")))
-            println(partitionAndTransform(intArrayOf(5, 2, 9, 1, 4, 6, 8, 3)))
+//            println(partitionAndTransform(intArrayOf(5, 2, 9, 1, 4, 6, 8, 3)))
 
 //            val people = listOf(
 //                Person("Alice", 25, "New York"),

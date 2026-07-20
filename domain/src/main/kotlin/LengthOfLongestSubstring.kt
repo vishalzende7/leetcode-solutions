@@ -17,41 +17,9 @@ class LengthOfLongestSubstring {
                 }
             }
             charSet.add(s[j])
-            maxLen = max(maxLen, (j-i)+1)
+            maxLen = max(maxLen, (j - i) + 1)
             j++
         }
         return maxLen
     }
 }
-
-
-/*
-*
-* Input: s = "bbbbb"
-* Output: 1
-* Explanation: The answer is "b", with the length of 1.
-* charSet = {b,}
-* bbbbb
-*  i
-*   j
-*
-*
-* Input: s = "abcbbabc"
-* Output: 3
-* Explanation: The answer is "abc", with the length of 3. Note that "bca" and "cab" are also correct answers.
-*
-* charSet = {a,b,c}
-* abcbababc
-*       i=j-1
-*          j=5
-*
-* Input: s = "dvdf"
-* Output: 3
-* Explanation: The answer is "vdf", with the length of 1.
-*
-* charSet = {v,}
-* dvdf
-*  i
-*    j
-*
-* */
